@@ -1,23 +1,88 @@
 # React-Todo-list
 
-This is a React To do list app developed by me to learn and enhance my react skills.
+This is a React Application to deployed on Docker and Microk8s Technologies.
 
  
  ## Tech Stack
 
-  `React` `HTML` `CSS` `Javascript`
+  `React` `HTML` `CSS` `Javascript` `Docker` `Microk8s`
 
- ## Learnings
+ ## How to deploy React Application
+ 
+  - Install Docker and Microk8s
+  - Get the Code from GitHub
+  - Write Dockerfile
+  - Build the Docker Image
+  - Run the Docker Images
+  - Check the Hosted API in Local using curl and check the App in Browser
+  - Push the docker image to DockerHub(Opensource) for deploying on top of k8s.
+  - Write the kubernetes Yaml( Manifest) files
+  - Make ensure that Microk8s is in running state.
+  - deploy and Apply the Yaml files.
+  - Check the pods and ensure that they are in running State.
+  - Check the Service of the Deployment(whether it is Nodeport or not).
+  - enable microk8s enable metallb to access the App Outside of Microk8s cluster such as on Browser.
+  - Take the Node IP or Localhost and the Nodeport of React App and access it on Browser(http://localhost:<NodePort>/ or http://node_IP:<NodePort>)
 
-  - React
-  - React hooks
-  - React props
-  - functions
-  - State management
-  - data processing
-  - Error resolving
+## Commands and Screenshots:
 
-  ## Screen-shots
-![Screenshot 2023-08-11 215157](https://github.com/MaheshRautrao/React-Todo-list/assets/101188065/04005ab9-b684-493e-8898-afd86bbcaca0)
-![Screenshot 2023-08-11 215233](https://github.com/MaheshRautrao/React-Todo-list/assets/101188065/a9414999-bcfc-4857-9243-a2734ab3b229)
-![Screenshot 2023-08-11 215243](https://github.com/MaheshRautrao/React-Todo-list/assets/101188065/87f07eb1-ad3c-41bf-969f-3aaee0ea645c)
+**Build Docker Image**
+
+```sh 
+docker build -t react-todo-list:1 .```
+
+**Run Docker Image**
+
+```sh 
+docker run -d -p 3000:3000 --name react-app react-todo-list:1 ```
+
+**Check the container Logs**
+
+```sh
+docker logs react-app  ```
+
+![Screenshot 19-06-2024 12346](screenshots/docker_checking_logs_react.png)
+
+**Check it out the react app running on Browser**
+
+```sh
+http://localhost:3000/```
+
+![Screenshot 19-06-2024 12345] (screenshots/home_screen_add_tasks.png)
+
+**Push Docker Image to DockerHub**
+
+```sh
+docker tag localimage:tag hostrepoName:tag
+docker push hostrepoName:tag ```
+
+**check whether the Microk8s running or not**
+
+``` sh
+microk8s status ```
+
+**Write Manifest files(Yaml file)**
+
+**Deploy the App using Manifest files and troubleshoot it if any errors**
+
+```sh
+micrik8s kubectl apply -f deployment.yml
+microk8s kubectl kubectl get pods -n namespace
+microk8s kubectl get deployment -n namespace
+microk8s kubectl get service -n namespace
+microk8s kubectl logs <Pod_ID> -n namespace
+microk8s kubectl describe pod <Pod_ID> -n namespace
+
+```
+![Screenshot 19-06-2024 12347](screenshots/k8s_practiced_deployment.png)
+
+**Test the Application outside browser, for this i used the nodeport to access the app from outsidecluster**
+```sh
+http://Node_IP:NodePort/  or
+http://localhost:NodePort/  ```
+
+![Screenshot 19-06-2024 12348](screenshots/nodeport_home_page.png)
+
+**Add Tasks to the Applicatrion**
+![Screenshot 19-06-2024](screenshots/home_screen_add_tasks.png)
+
