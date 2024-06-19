@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: react-app1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: react-app
+      app: react-app1
   template:
     metadata:
       labels:
-        app: react-app
+        app: react-app1
     spec:
       containers:
-      - name: react-app
+      - name: react-app1
         image: saikrish12345/react-todo-list:1
         ports:
         - containerPort: 3000
@@ -29,11 +29,16 @@ metadata:
   name: react-app-service
 spec:
   selector:
-    app: react-app
+    app: react-app1
   ports:
     - name: http
       protocol: TCP
       port: 80
       targetPort: 3000
-  type: ClusterIP
+    - name: nodeport
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 32008  # Specify a node port if you want to use NodePort service type
+  type: NodePort
 
