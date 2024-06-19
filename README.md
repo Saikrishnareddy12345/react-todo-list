@@ -52,7 +52,7 @@ docker logs react-app
 http://localhost:3000/
 ```
 
-![Screenshot 19-06-2024 12345] (screenshots/home_screen_add_tasks.png)
+![Screenshot 19-06-2024 12345](screenshots/home_screen_add_tasks.png)
 
 **Push Docker Image to DockerHub**
 
