@@ -22,62 +22,61 @@ This is a React Application to deployed on Docker and Microk8s Technologies.
   - Check the pods and ensure that they are in running State.
   - Check the Service of the Deployment(whether it is Nodeport or not).
   - enable microk8s enable metallb to access the App Outside of Microk8s cluster such as on Browser.
-  - Take the Node IP or Localhost and the Nodeport of React App and access it on Browser(http://localhost:<NodePort>/ or http://node_IP:<NodePort>)
+  - Take the Node IP or Localhost,Nodeport of React App and access it on Browser(http://localhost:<NodePort>/ or http://node_IP:<NodePort>)
 
 ## Commands and Screenshots:
 
 **Build Docker Image**
 
-```sh 
+``` 
 docker build -t react-todo-list:1 .```
 
 **Run Docker Image**
 
-```sh 
+```
 docker run -d -p 3000:3000 --name react-app react-todo-list:1 ```
 
 **Check the container Logs**
 
-```sh
-docker logs react-app  ```
+```
+docker logs react-app```
 
 ![Screenshot 19-06-2024 12346](screenshots/docker_checking_logs_react.png)
 
 **Check it out the react app running on Browser**
 
-```sh
+```
 http://localhost:3000/```
 
 ![Screenshot 19-06-2024 12345] (screenshots/home_screen_add_tasks.png)
 
 **Push Docker Image to DockerHub**
 
-```sh
+```
 docker tag localimage:tag hostrepoName:tag
 docker push hostrepoName:tag ```
 
 **check whether the Microk8s running or not**
 
-``` sh
+```
 microk8s status ```
 
 **Write Manifest files(Yaml file)**
 
 **Deploy the App using Manifest files and troubleshoot it if any errors**
 
-```sh
+```
 micrik8s kubectl apply -f deployment.yml
 microk8s kubectl kubectl get pods -n namespace
 microk8s kubectl get deployment -n namespace
 microk8s kubectl get service -n namespace
 microk8s kubectl logs <Pod_ID> -n namespace
-microk8s kubectl describe pod <Pod_ID> -n namespace
+microk8s kubectl describe pod <Pod_ID> -n namespace ```
 
-```
 ![Screenshot 19-06-2024 12347](screenshots/k8s_practiced_deployment.png)
 
 **Test the Application outside browser, for this i used the nodeport to access the app from outsidecluster**
-```sh
+```
 http://Node_IP:NodePort/  or
 http://localhost:NodePort/  ```
 
