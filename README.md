@@ -29,24 +29,28 @@ This is a React Application to deployed on Docker and Microk8s Technologies.
 **Build Docker Image**
 
 ``` 
-docker build -t react-todo-list:1 .```
+docker build -t react-todo-list:1 .
+```
 
 **Run Docker Image**
 
 ```
-docker run -d -p 3000:3000 --name react-app react-todo-list:1 ```
+docker run -d -p 3000:3000 --name react-app react-todo-list:1
+```
 
 **Check the container Logs**
 
 ```
-docker logs react-app```
+docker logs react-app
+```
 
 ![Screenshot 19-06-2024 12346](screenshots/docker_checking_logs_react.png)
 
 **Check it out the react app running on Browser**
 
 ```
-http://localhost:3000/```
+http://localhost:3000/
+```
 
 ![Screenshot 19-06-2024 12345] (screenshots/home_screen_add_tasks.png)
 
@@ -54,12 +58,14 @@ http://localhost:3000/```
 
 ```
 docker tag localimage:tag hostrepoName:tag
-docker push hostrepoName:tag ```
+docker push hostrepoName:tag
+```
 
 **check whether the Microk8s running or not**
 
 ```
-microk8s status ```
+microk8s status
+ ```
 
 **Write Manifest files(Yaml file)**
 
@@ -71,14 +77,16 @@ microk8s kubectl kubectl get pods -n namespace
 microk8s kubectl get deployment -n namespace
 microk8s kubectl get service -n namespace
 microk8s kubectl logs <Pod_ID> -n namespace
-microk8s kubectl describe pod <Pod_ID> -n namespace ```
+microk8s kubectl describe pod <Pod_ID> -n namespace
+```
 
 ![Screenshot 19-06-2024 12347](screenshots/k8s_practiced_deployment.png)
 
 **Test the Application outside browser, for this i used the nodeport to access the app from outsidecluster**
 ```
 http://Node_IP:NodePort/  or
-http://localhost:NodePort/  ```
+http://localhost:NodePort/
+```
 
 ![Screenshot 19-06-2024 12348](screenshots/nodeport_home_page.png)
 
