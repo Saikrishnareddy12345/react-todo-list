@@ -90,6 +90,6 @@ http://localhost:NodePort/
 
 ![Screenshot 19-06-2024 12348](screenshots/nodeport_home_page.png)
 
-**Add Tasks to the Applicatrion**
+**Add Tasks to the Application**
 ![Screenshot 19-06-2024](screenshots/home_screen_add_tasks.png)
 
