@@ -22,7 +22,7 @@ This is a React Application to deployed on Docker and Microk8s Technologies.
   - Check the pods and ensure that they are in running State.
   - Check the Service of the Deployment(whether it is Nodeport or not).
   - enable microk8s enable metallb to access the App Outside of Microk8s cluster such as on Browser.
-  - Take the Node IP or Localhost,Nodeport of React App and access it on Browser(http://localhost:<NodePort>/ or http://node_IP:<NodePort>)
+  - Take the Node IP or Localhost,Nodeport of React App and access it on Browser(http://localhost:<NodePort> or http://node_IP:<NodePort>)
 
 ## Commands and Screenshots:
 
