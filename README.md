@@ -7,6 +7,8 @@ This is a React Application to deployed on Docker and Microk8s Technologies.
 
   `React` `HTML` `CSS` `Javascript` `Docker` `Microk8s` `AWS EC2` `Local Laptop`
 
+  **DockerImage: saikrish12345/react-todo-list:1**
+
  ## How to deploy React Application
  
   - Install Docker and Microk8s
