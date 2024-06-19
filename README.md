@@ -5,7 +5,7 @@ This is a React Application to deployed on Docker and Microk8s Technologies.
  
  ## Tech Stack
 
-  `React` `HTML` `CSS` `Javascript` `Docker` `Microk8s` `AWS EC2` `Laptop`
+  `React` `HTML` `CSS` `Javascript` `Docker` `Microk8s` `AWS EC2` `Local Laptop`
 
  ## How to deploy React Application
  
